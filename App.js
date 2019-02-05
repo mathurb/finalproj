@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Login from './Application/Scenes/Login';
+import Auth from './utils/Auth.js';
 
 export default class App extends React.Component {
   state = {
@@ -9,9 +10,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
         <Login />
-      </View>
     );
   }
 }
