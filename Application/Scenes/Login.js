@@ -11,7 +11,8 @@ import styles from '../Assets/Styles/Style';
 import logo from '../Assets/Images/logo.png';
 import ViewContainer from '../Components/ViewContainer';
 import {StackNavigator} from 'react-navigation';
-import {Button,Icon} from 'react-native-elements';
+import {Button,Icon, SocialIcon} from 'react-native-elements';
+import { signInWithFacebook } from '../../utils/auth';
 export default class Login extends React.Component {
   constructor(props){
     super(props);
@@ -38,6 +39,12 @@ export default class Login extends React.Component {
         underlineColorAndroid = 'transparent'
         secureTextEntry = {true}
       />
+      <SocialIcon 
+        title='Login with Facebook'
+        button
+        type='facebook'
+        onPress={signInWithFacebook}
+      />
       <Button
           text='BUTTON'
           title='LOGIN'
@@ -54,7 +61,7 @@ export default class Login extends React.Component {
               marginBottom:  15
           }}
           containerStyle={{ marginTop: 20 }}
-          onPress={this._handleLogin}
+          onPress={()=> console.log('PRESSED LOGIN!!!!!')}
       />
       <Button
           text='BUTTON'
