@@ -7,6 +7,7 @@ import Suggestions from '../Scenes/Suggestions';
 import CropScene from '../Scenes/CropScene';
 import Profile from '../Scenes/Profile';
 
+
 const HomeStack = createStackNavigator({
   Home: Suggestions,
 });

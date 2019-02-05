@@ -2,8 +2,8 @@ import React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Font, Icon } from 'expo';
 import AppNavigator from './Navigator/AppNavigator';
-import Auth from './utils/Auth.js';
-import Login from './Scenes/Login';
+
+
 export default class Index extends React.Component {
   state = {
     isLoadingComplete: false,
@@ -20,21 +20,12 @@ export default class Index extends React.Component {
         />
       );
     } else {
-      if(!fbLoginSuccess){
         return(
           <View style={styles.container}>
             {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
             <AppNavigator />
           </View>
         );
-      } else {
-        return (
-          <View style={styles.container}>
-            {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-            <Login />
-          </View>
-        );
-      }
     }
   }
 

@@ -12,10 +12,10 @@ export default class Profile extends Component {
   static navigationOptions = {
     title: 'Profile',
   };
-  handleLogout= ()=>{
+  _handleLogout= ()=>{
    // AsyncStorage.removeItem('user');
-   // AsyncStorage.removeItem('token');
-   // this.props.navigation.navigate('Login')
+   AsyncStorage.removeItem('userToken');
+   this.props.navigation.navigate('Auth');
    alert(`pressed logout button`);
   }
 
@@ -38,7 +38,7 @@ export default class Profile extends Component {
               marginBottom:  15
           }}
           containerStyle={{ marginTop: 20 }}
-          onPress={this.handleLogout}
+          onPress={this._handleLogout}
       />
 
       </ViewContainer>
