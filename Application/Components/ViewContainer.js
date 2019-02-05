@@ -1,13 +1,16 @@
 import React from 'react';
-import { StyleSheet, View,KeyboardAvoidingView, Animated,
-  Keyboard, } from 'react-native';
-import StatusBarBackground from './StatusBarBackground';
+import {
+   ScrollView,
+   KeyboardAvoidingView,
+   Animated,
+   Keyboard,
+ } from 'react-native';
+//import StatusBarBackground from './StatusBarBackground';
 import styles from '../Assets/Styles/Style';
 
 export default class ViewContainer extends React.Component {
   componentWillMount(){
     this.keyboardWillShowSub = Keyboard.addListener('keyboardWillShow', this.keyboardWillShow);
-
     this.keyboardWillHideSub = Keyboard.addListener('keyboardWillHide', this.keyboardWillHide);
   }
   componentWillUnmount() {
@@ -30,8 +33,9 @@ export default class ViewContainer extends React.Component {
   render() {
     return (
       <KeyboardAvoidingView behaviour='padding' style={styles.container}>
-        <StatusBarBackground/>
+        <ScrollView>
         {this.props.children}
+        </ScrollView>
       </KeyboardAvoidingView>
     );
   }
