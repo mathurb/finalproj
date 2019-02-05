@@ -29,6 +29,6 @@ export default class CropScene extends React.Component {
     );
   }
   _handlePress = ()=>{
-    this.props.navigation.navigate('DetailRoute');
+    this.props.navigation.navigate('Detail');
   }
 }

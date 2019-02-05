@@ -6,7 +6,7 @@ import TabBarIcon from '../Components/TabBarIcon';
 import Suggestions from '../Scenes/Suggestions';
 import CropScene from '../Scenes/CropScene';
 import Profile from '../Scenes/Profile';
-
+import Details from '../Scenes/Details';
 
 const HomeStack = createStackNavigator({
   Home: Suggestions,
@@ -28,6 +28,7 @@ HomeStack.navigationOptions = {
 
 const CropStack = createStackNavigator({
   Crops: CropScene,
+  Detail: Details,
 });
 
 CropStack.navigationOptions = {
