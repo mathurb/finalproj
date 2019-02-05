@@ -2,15 +2,25 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Login from './Application/Scenes/Login';
 import Auth from './utils/Auth.js';
+import {Font} from 'expo'
 
 export default class App extends React.Component {
   state = {
-    fbLoginSuccess: false
+    fbLoginSuccess: false,
+    fontLoaded: false
+  };
+
+  async componentDidMount() {
+    await Font.loadAsync({
+      'merriweather': require('./assets/fonts/Merriweather-Regular.ttf'),
+    });
+
+    this.setState({ fontLoaded: true });
   }
 
   render() {
     return (
-        <Login />
+        <Login fontLoaded={this.state.fontLoaded} />
     );
   }
 }

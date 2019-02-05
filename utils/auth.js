@@ -128,7 +128,7 @@ export default class Auth extends React.Component {
 
       if (!this.state.confirmationResult)
           return (
-              <ScrollView style={{padding: 20, marginTop: 20}}>
+              <ScrollView style={{padding: 20, marginTop: '100%'}}>
                   <TextInput
                       value={this.state.phone}
                       onChangeText={this.onPhoneChange}
