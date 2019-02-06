@@ -19,9 +19,10 @@ export default class Details extends React.Component {
   render() {
     return (
       <ViewContainer>
-        
+      <View>
         <Button title="Back" onPress={this._signOutAsync} />
         <StatusBar barStyle="default"  />
+      </View>  
       </ViewContainer>
     );
   }
