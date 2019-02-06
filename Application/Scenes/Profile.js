@@ -8,9 +8,19 @@ import {
   Image,
   StyleSheet,
 } from 'react-native';
+import Avatar from '../Assets/Images/Avatar.png'
 import {Button} from 'react-native-elements';
 import ViewContainer from '../Components/ViewContainer';
 export default class Profile extends Component {
+
+  state = {
+    uri: Avatar,
+  }
+
+  componentDidMount(){
+    this.setProfileData();
+  }
+
   static navigationOptions = {
     title: 'Profile',
   };
@@ -27,7 +37,7 @@ export default class Profile extends Component {
         <View style={styles.header}>
            <View style={styles.headerContent}>
                <Image style={styles.avatar}
-                 source={{uri: '../Assets/Images/Avatar.png'}}/>
+                 source={{uri: this.state.uri.toString()}}/>
 
                <Text style={styles.name}>
                  John Doe
@@ -38,7 +48,7 @@ export default class Profile extends Component {
          <View style={styles.body}>
            <View style={styles.bodyContent}>
              <Text style={styles.textInfo}>
-               johndoe@gmail.com
+              johndoe@gmail.com
              </Text>
 
              <Text style={styles.textInfo}>
