@@ -10,24 +10,30 @@ import {
   FlatList,
 } from 'react-native';
 import {Input} from 'react-native-elements';
+import styles from '../Assets/Styles/Style';
 import ViewContainer from '../Components/ViewContainer';
 export default class Suggestions extends React.Component {
   static navigationOptions = {
-    title:'Final Project',
+    title:'Suggestions',
   };
   render() {
     return (
       <ViewContainer>
             <FlatList
+            style={styles.suglist}
               data={[
-                {'key':'Wheat'},
-                {'key':'Bailey'},
-                {'key':'Rice'},
-                {'key':'Corn'},
-                {'key':'SugerCane'},
-                {'key':'Weed'},
+                {'key':'Check the Rice crop'},
+                {'key':'Check the Rice crop'},
+                {'key':'Check the Rice crop'},
+                {'key':'Check the Rice crop'},
+                {'key':'Check the Rice crop'},
+                {'key':'Check the Rice crop'},
               ]}
-              renderItem={({item})=><Text>{item.key}</Text>}
+              renderItem={({item})=>
+              <View style={styles.sugitem}>
+              <Text>{item.key}</Text>
+              </View>
+            }
             />
       </ViewContainer>
     );

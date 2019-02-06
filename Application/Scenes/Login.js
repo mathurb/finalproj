@@ -11,6 +11,7 @@ import {Linking, WebBrowser} from 'expo'
 import styles from '../Assets/Styles/Style';
 import logo from '../Assets/Images/logo.png';
 import ViewContainer from '../Components/ViewContainer';
+import { LinearGradient } from 'expo';
 import {Button,Icon, SocialIcon} from 'react-native-elements';
 import Auth from '../utils/Auth.js';
 import firebase from '../utils/firebase';
@@ -31,6 +32,10 @@ export default class Login extends React.Component {
   static navigationOptions = {
     header: null,
   }
+  static navigationOptions = {
+    header: null
+  }
+
   //face book signin
   _signInWithFacebook= async()=> {
     const appId = Expo.Constants.manifest.extra.facebook.appId;
@@ -179,12 +184,15 @@ export default class Login extends React.Component {
               </ViewContainer>
             )*/}
             return(<ViewContainer>
+              <View style= {styles.loginbox}>
             <SocialIcon
               title='Login with Facebook'
               button
               type='facebook'
               onPress={this._signInWithFacebook}
+              style={styles.btn}
             />
+          </View>
         </ViewContainer>)
   }
 
