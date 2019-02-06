@@ -35,6 +35,12 @@ export default class CropScene extends React.Component {
             {'key':'Corn'},
             {'key':'SugerCane'},
             {'key':'Broom-corn'},
+            {'key':'Cotton'},
+            {'key':'Groundnut'},
+            {'key':'Potatoes'},
+            {'key':'Sunflower'},            
+            {'key':'Soybean'},            
+            {'key':'Tomatoes'},
           ]}
           renderItem={({item})=> <TouchableOpacity style={styles.cropcards} onPress={this._handlePress}><Text>{item.key}</Text></TouchableOpacity>}
         />

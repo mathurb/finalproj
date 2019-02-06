@@ -56,22 +56,30 @@ export default StyleSheet.create({
   },
   croptab:{
     display:'flex',
-    height:600,
+    // height:600,
     width:400,
-    alignItems:'center'
+    alignItems:'center',
+    overflow:'scroll'
+  },
+  croptablist:{
   },
   cropcards:{
     alignSelf:'flex-start',
     padding:10,
     height:60,
     width:500,
-    backgroundColor:'#1d72aaa3'
+    backgroundColor:'rgba(107,241,120,0.2)'
   },
   suglist:{
-    width:400,
+    width:340,
     padding:10,    
   },
   sugitem:{
+    marginBottom:10,
+    borderRadius:10,
+    borderWidth:1,
+    borderColor:'black',
+    backgroundColor: 'rgba(107,241,120,0.2)',
     padding:10,
   }
 });
