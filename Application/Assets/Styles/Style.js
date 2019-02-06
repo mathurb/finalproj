@@ -1,12 +1,11 @@
 import { StyleSheet, Dimensions } from 'react-native';
 const window = Dimensions.get('window');
-
 export const IMAGE_HEIGHT = window.width / 2;
 export const IMAGE_HEIGHT_SMALL = window.width /7;
 
 export default StyleSheet.create({
   container: {
-    backgroundColor: '#4c69a5',
+    backgroundColor: '#eee',
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
@@ -46,10 +45,33 @@ export default StyleSheet.create({
   },
   btn:{
     alignSelf:'stretch',
-    backgroundColor:'powderblue',
-    padding:5,
+    backgroundColor:'#2374AB',
+    padding:10,
     alignItems:'center',
     marginHorizontal:10,
     marginVertical:5,
   },
+  loginbox:{
+    paddingTop:200,
+  },
+  croptab:{
+    display:'flex',
+    height:600,
+    width:400,
+    alignItems:'center'
+  },
+  cropcards:{
+    alignSelf:'flex-start',
+    padding:10,
+    height:60,
+    width:500,
+    backgroundColor:'#1d72aaa3'
+  },
+  suglist:{
+    width:400,
+    padding:10,    
+  },
+  sugitem:{
+    padding:10,
+  }
 });

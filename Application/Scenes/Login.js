@@ -57,13 +57,16 @@ export default class Login extends React.Component {
   render() {
     return (
       <ViewContainer>
+        <View style ={styles.loginbox}>
 
         <SocialIcon
           title='Login with Facebook'
           button
           type='facebook'
           onPress={this._signInWithFacebook}
-        />
+          style={styles.btn}
+          />
+        </View>
 
 
       </ViewContainer>

@@ -19,7 +19,8 @@ export default class Details extends React.Component {
   render() {
     return (
       <ViewContainer>
-        <Button title="I'm done, sign me out" onPress={this._signOutAsync} />
+        
+        <Button title="Back" onPress={this._signOutAsync} />
         <StatusBar barStyle="default"  />
       </ViewContainer>
     );
@@ -29,6 +30,6 @@ export default class Details extends React.Component {
  // }
   _signOutAsync = async () => {
     this.props.navigation.navigate('Main');
-    alert(`test`);
+    // alert(`test`);
   };
 }
