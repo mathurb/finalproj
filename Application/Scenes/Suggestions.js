@@ -22,16 +22,16 @@ export default class Suggestions extends React.Component {
             <FlatList
             style={styles.suglist}
               data={[
-                {'key':'Check the Rice crop'},
-                {'key':'Check the Rice crop'},
-                {'key':'Check the Rice crop'},
-                {'key':'Check the Rice crop'},
-                {'key':'Check the Rice crop'},
-                {'key':'Check the Rice crop'},
+                {'key':'1','text':'water plants'},
+                {'key':'2','text':'water plants'},
+                {'key':'3','text':'water plants'},
+                {'key':'4','text':'water plants'},
+                {'key':'5','text':'water plants'},
+                {'key':'6','text':'water plants'},
               ]}
               renderItem={({item})=>
               <View style={styles.sugitem}>
-              <Text>{item.key}</Text>
+              <Text>{item.text}</Text>
               </View>
             }
             />
