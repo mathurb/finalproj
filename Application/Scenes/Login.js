@@ -7,18 +7,29 @@ import {
     Image,
     AsyncStorage
 } from 'react-native';
+import {Linking, WebBrowser} from 'expo'
 import styles from '../Assets/Styles/Style';
 import logo from '../Assets/Images/logo.png';
 import ViewContainer from '../Components/ViewContainer';
 import {Button,Icon, SocialIcon} from 'react-native-elements';
 import Auth from '../utils/Auth.js';
 import firebase from '../utils/firebase';
+const captchaUrl = `https://agro-advisory.firebaseapp.com?appurl=${Linking.makeUrl('')}`;
 export default class Login extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-
+        user: undefined,
+        phone: '',
+        confirmationResult: undefined,
+        code: ''
     }
+    firebase.auth().onAuthStateChanged(user => {
+        this.setState({user})
+    })
+  }
+  static navigationOptions = {
+    header: null,
   }
   //face book signin
   _signInWithFacebook= async()=> {
@@ -54,19 +65,128 @@ export default class Login extends React.Component {
       }
     }
   }
+// //otp sign ins
+// _onPhoneChange = (phone) => {
+//     this.setState({phone});
+// }
+// _onPhoneComplete = async() => {
+//     let token = null
+//     const listener = ({url}) => {
+//         WebBrowser.dismissBrowser()
+//         const tokenEncoded = Linking.parse(url).queryParams['token']
+//         if (tokenEncoded)
+//             token = decodeURIComponent(tokenEncoded)
+//     }
+//     Linking.addEventListener('url', listener)
+//     await WebBrowser.openBrowserAsync(captchaUrl)
+//     Linking.removeEventListener('url', listener)
+//     if (token) {
+//         const {phone} = this.state
+//         //fake firebase.auth.ApplicationVerifier
+//         const captchaVerifier = {
+//             type: 'recaptcha',
+//             verify: () => Promise.resolve(token)
+//         }
+//         try {
+//             const confirmationResult = await firebase.auth().signInWithPhoneNumber(phone, captchaVerifier)
+//             this.setState({confirmationResult})
+//         } catch (e) {
+//             console.warn(e)
+//         }
+//
+//     }
+// }
+// _onCodeChange = (code) => {
+//     this.setState({code})
+// }
+// _onSignIn = async () => {
+//     const {confirmationResult, code} = this.state
+//     try {
+//         await confirmationResult.confirm(code)
+//     } catch (e) {
+//         console.warn(e)
+//     }
+//     this.reset()
+// }
+// _onSignOut = async () => {
+//     try {
+//         await firebase.auth().signOut()
+//     } catch (e) {
+//         console.warn(e)
+//     }
+// }
+// reset = () => {
+//     this.setState({
+//         phone: '',
+//         phoneCompleted: false,
+//         confirmationResult: undefined,
+//         code: ''
+//     })
+// }
   render() {
-    return (
-      <ViewContainer>
-
-        <SocialIcon
-          title='Login with Facebook'
-          button
-          type='facebook'
-          onPress={this._signInWithFacebook}
-        />
-
-
-      </ViewContainer>
-    );
+  {  // if (this.state.user)
+    //     return (
+    //         <ViewContainer >
+    //             <Text>You signed in</Text>
+    //             <Button
+    //                 onPress={this._onSignOut}
+    //                 title="Sign out"
+    //             />
+    //         </ViewContainer>
+    //     )}
   }
+{     /*   if (!this.state.confirmationResult)
+            return (
+              <ViewContainer>
+              <SocialIcon
+                title='Login with Facebook'
+                button
+                type='facebook'
+                onPress={this._signInWithFacebook}
+              />
+                    <TextInput
+                        value={this.state.phone}
+                        onChangeText={this._onPhoneChange}
+                        keyboardType="phone-pad"
+                        placeholder="Your phone"
+                    />
+                    <Button
+                        onPress={this._onPhoneComplete}
+                        title="Next"
+                    />
+
+              </ViewContainer>
+            )
+        else
+            return (
+              <ViewContainer>
+              <SocialIcon
+                title='Login with Facebook'
+                button
+                type='facebook'
+                onPress={this._signInWithFacebook}
+              />
+                    <TextInput
+                        value={this.state.code}
+                        onChangeText={this._onCodeChange}
+                        keyboardType="numeric"
+                        placeholder="Code from SMS"
+                    />
+                    <Button
+                        onPress={this._onSignIn}
+                        title="Sign in"
+                    />
+              </ViewContainer>
+            )*/}
+            return(<ViewContainer>
+            <SocialIcon
+              title='Login with Facebook'
+              button
+              type='facebook'
+              onPress={this._signInWithFacebook}
+            />
+        </ViewContainer>)
+  }
+
+
 }
